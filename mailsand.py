@@ -12,26 +12,25 @@ def validateEmail(email):
             return 1
     return 0
 
-# 异步发送邮件
-def send_async_email(email, config_info):
-    Thread(target=send_email, args=[email, config_info]).start()
-
+#异步发送邮件
+def send_async_email(email,config_info):
+    Thread(target=send_email, args=[email,config_info]).start()
 
 # 发送邮件
-def send_email(email, config_info):
-    SERVER = config_info['master_mail_smtp']  # 邮箱smtp服务器
-    PORT = 25  # 邮箱smtp端口
-    USERNAME = config_info['master_mail_address']  # smtp账号
-    PASSWORD = config_info['master_mail_password']  # smtp授权密码
+def send_email(email,config_info):
+    SERVER = config_info['master_mail_smtp'] #邮箱smtp服务器
+    PORT = 25 #邮箱smtp端口
+    USERNAME = config_info['master_mail_address'] #smtp账号
+    PASSWORD = config_info['master_mail_password']#smtp授权密码
     FROM = USERNAME
     TO = email.get('to')
     SUBJECT = email.get('subject')
     TEXT = email.get('text')
 
-    msg = MIMEText(TEXT.encode('utf-8'), 'html', 'utf-8')
+    msg = MIMEText(TEXT.encode('utf-8'),'html','utf-8')
     msg['From'] = FROM
     msg['To'] = TO
-    msg['Subject'] = Header(SUBJECT, 'utf-8')
+    msg['Subject'] = Header(SUBJECT,'utf-8')
 
     try:
         smtp = smtplib.SMTP(SERVER, PORT)

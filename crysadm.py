@@ -1,6 +1,3 @@
-#! /usr/bin/env python3.4
-# -*- coding: utf-8 -*-
-# crysadm.py - main entance for web GUI
 from flask import Flask
 import config, socket, redis
 

@@ -244,3 +244,4 @@ def __handle_exception(e=None, rd='接口故障', r=-12345):
 
     r_session.setex('api_error_count', str(err_count), err_count_ttl + 1)
     return dict(r=r, rd=rd)
+# @爱转角遇见了谁[2016-4-31]更新

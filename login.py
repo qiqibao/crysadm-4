@@ -1,6 +1,3 @@
-#! /usr/bin/env python3.4
-# -*- coding: utf-8 -*-
-# login.py - xunlei user login
 __author__ = 'powergx'
 import requests
 import random
@@ -12,16 +9,17 @@ import hashlib
 
 
 def StrToInt(str):
-    """ StrToInt - conver String to Integer """
     bigInteger = 0
+
     for char in str:
         bigInteger <<= 8
         bigInteger += ord(char)
+
     return bigInteger
 
 
 def pow_mod(x, y, z):
-    """ Calculate (x ** y) % z efficiently. """
+    "Calculate (x ** y) % z efficiently."
     number = 1
     while y:
         if y & 1:
